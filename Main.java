@@ -72,13 +72,19 @@ public class Main {
         System.out.println("A total of " + count + " items were correctly converted to Integer.");
     }
 
-    static int parseIntOrDefault(String s, int def) throws NumberFormatException {
-        int parsedString = Integer.parseInt(s);
+    static int parseIntOrDefault(String s, int def) {
+        try {
+            return Integer.parseInt(s);
+        } catch (NumberFormatException e) {
+            return def;
+        }
 
-        return parsedString;
     }
-    static double parseDoubleOrDefault(String s, double def) throws NumberFormatException {
-        double parsedString = Double.parseDouble(s);
-        return parsedString;
+    static double parseDoubleOrDefault(String s, double def) {
+        try {
+            return Double.parseDouble(s);
+        } catch (NumberFormatException e) {
+            return def;
+        }
     }
 }
